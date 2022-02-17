@@ -19,6 +19,13 @@ def test_twice_is_bigger():
     
     x = randint(1,10)
     assert 2*x > x
+    
+@assertive
+def test_twice_is_odd():
+    "Test whether twice any number is odd"
+    x = randint(1,10)
+    assert (2*x) % 2 == 1
+    
 ```
 
 And run them as follows:
@@ -39,4 +46,23 @@ if __name__ == '__main__':
     if ok < 1:
         print_traceback_log()
 
+```
+
+The output of this script is:
+
+```
+test_twice_is_bigger Test whether 2*x is bigger than x OK
+test_twice_is_odd Test whether twice any number is odd FAILED
+------------
+50.0% OK
+
+
+-----------------
+test_twice_is_odd Test whether twice any number is odd
+Traceback (most recent call last):
+  File "/home/xheimlich/smuckles/tests/runner.py", line 28, in wrapper
+    func(*args, **kwargs)
+  File "/home/xheimlich/smuckles/tests/faux.py", line 15, in test_twice_is_odd
+    assert (2*x) % 2 == 1
+AssertionError
 ```

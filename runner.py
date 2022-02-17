@@ -12,6 +12,13 @@ def print_function(func, *args):
         print(func.__name__, func.__doc__, *args)
     return
 
+
+def print_traceback_log():
+    for failed_func, traceback in traceback_log.items():
+        print(len(failed_func.__name__) * "-")
+        print_function(failed_func)
+        print(traceback)
+
 def assertive(func):
     global test_registry
     global traceback_log
